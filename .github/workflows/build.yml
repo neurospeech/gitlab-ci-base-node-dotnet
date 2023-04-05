@@ -16,5 +16,5 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-            push: true
-            tags: ackava/gitlab-ci-base-node-dotnet:latest
+          push: true
+          tags: ackava/gitlab-ci-base-node-dotnet:latest
