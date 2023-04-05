@@ -16,7 +16,7 @@ RUN apt-get update && \
 
 RUN apt-get update && \
     apt-get install -y libc6 libgcc1 libgcc-s1 libgssapi-krb5-2 libicu71 \
-        liblttng-ust1 libssl3 libstdc++6 libunwind8 zlib1g
+        liblttng-ust0 libssl3 libstdc++6 libunwind8 zlib1g
 
 RUN apt-get update && \
     apt-get install -y dotnet-sdk-6.0
