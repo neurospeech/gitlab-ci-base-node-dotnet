@@ -1,7 +1,5 @@
-ARG FUNCTION_DIR="/function"
-
 # Build Stage 1: Install aws-lambda-ric dependencies, npm install package.json dependencies
-FROM node:18-buster
+FROM ubuntu:22.10
 
 # AWS Lambda runtime dependencies
 RUN apt-get update && \
@@ -12,11 +10,11 @@ RUN apt-get update && \
         libcurl4-openssl-dev \
         autoconf \
         libtool \
-        cmake
+        cmake \
+        curl
 
-RUN apt-get update && \
-    apt-get install -y libc6 libgcc1 libgcc-s1 libgssapi-krb5-2 libicu71 \
-        liblttng-ust0 libssl3 libstdc++6 libunwind8 zlib1g
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | -E bash - &&\
+    apt-get install -y nodejs
 
 RUN apt-get update && \
     apt-get install -y dotnet-sdk-6.0
