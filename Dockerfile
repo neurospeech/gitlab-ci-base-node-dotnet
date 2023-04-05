@@ -13,7 +13,7 @@ RUN apt-get update && \
         cmake \
         curl
 
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | -E bash - &&\
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash && \
     apt-get install -y nodejs
 
 RUN apt-get update && \
