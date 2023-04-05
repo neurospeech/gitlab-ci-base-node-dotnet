@@ -1,0 +1,26 @@
+name: Node.js CI
+
+on: 
+  push: 
+    tags:
+      - '*'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    
+# Upload to Docker
+     - name: Login to Docker Hub
+       uses: docker/login-action@v2
+       with:
+         username: ${{ vars.DOCKERHUB_USERNAME }}
+         password: ${{ secrets.DOCKERHUB_TOKEN }}
+     - name: Build and push
+       uses: docker/build-push-action@v4
+       with:
+         context: .
+         push: true
+         tags: ackava/gitlab-ci-base-node-dotnet:latest
